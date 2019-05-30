@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>MAD LIBS</title>
+  </head>
+  
+  <body>
+      <div id="app">
+      
+      <div v-if ="notfinished">
+      <h1>Welcome to madLib!</h2>
+      <p>Please enter the requested type below</p>
+
+        <form v-on:submit.prevent="addResponse">
+
+          <label> {{currentType}}</label>
+          <input v-model="inputResponse" @keyup.enter="submit">
+          <button type="submit"> submit</button>
+        </form>
+      
+      </div>
+      <div v-else>
+      <h1>{{madLibTitle}}</h2>
+      <p>{{string}}</p>
+      </div>
+      </div>
+
+  </body>
+    <script src="http://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="/script.js"></script>
+</html>
