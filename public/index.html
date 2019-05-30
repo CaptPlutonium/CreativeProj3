@@ -18,20 +18,22 @@
       <div id="app">
       
       <div v-if ="notfinished">
-      <h1 style="padding-left:30px;">Welcome to madLib!</h2>
+      <h1 style="padding-left:30px;">Welcome to madLib!</h1>
       <p style="padding-left:30px;">Please enter the requested type below</p>
 
         <form v-on:submit.prevent="addResponse">
 
-          <label style="padding-left:30px;"> {{currentType}} </label>
+          <label style="padding-left:30px; font-size: 1.25em"> {{currentType}} </label>
           <input v-model="inputResponse" @keyup.enter="submit">
           <button type="submit"> submit</button>
         </form>
       
       </div>
       <div v-else>
-      <h1 style="padding-left:30px;">{{madLibTitle}}</h2>
-      <p style="padding-left:30px;">{{string}}</p>
+      <h1 style="padding-left:30px; font-weight: bold;" >{{madLibTitle}}</h1>
+      </br>
+    </br>
+      <p style="padding-left:30px; font-size: 1.5em;">{{string}}</p>
       </div>
       </div>
 

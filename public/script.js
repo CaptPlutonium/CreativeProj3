@@ -23,12 +23,8 @@ new Vue({
         try{
             const response= await axios.get('https://madlibz.herokuapp.com/api/random');
             this.madLibTitle=response.data.title;
-            for(var i =0; i< response.data.value.length -1; i++){
-                this.words.push(response.data.value[i]);
-            }
-            for(var i =0; i< response.data.blanks.length -1; i++){
-                this.valueTypes.push(response.data.blanks[i]);
-            }
+            this.words=response.data.value;
+            this.valueTypes = response.data.blanks;
             this.length = response.data.blanks.length;
             this.iterator = 0;
             this.currentType = this.valueTypes[0];
@@ -40,9 +36,15 @@ new Vue({
 
     },
     addResponse() {
+        if(this.length == 1)
+        {
+            this.string += this.inputResponse;
+            this.notfinished=false;
+            return;
+        }
         this.iterator++;
         this.string += this.inputResponse;
-        this.string += this.words[this.iterator];
+        this.string += this.words[this.iterator];     
         this.currentType = this.valueTypes[this.iterator];
         this.inputResponse = "";
         
