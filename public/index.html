@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/style.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -10,23 +11,27 @@
   </head>
   
   <body>
+    <div class="jumbotron jumbotron-fluid style" style="background-color: green; color: white">
+      <h1 style="padding-left:30px;">MAD LIBS</h1>
+      <h4 style="padding-left:30px;">Invent your own fun!</h4>
+    </div>
       <div id="app">
       
       <div v-if ="notfinished">
-      <h1>Welcome to madLib!</h2>
-      <p>Please enter the requested type below</p>
+      <h1 style="padding-left:30px;">Welcome to madLib!</h2>
+      <p style="padding-left:30px;">Please enter the requested type below</p>
 
         <form v-on:submit.prevent="addResponse">
 
-          <label> {{currentType}}</label>
+          <label style="padding-left:30px;"> {{currentType}} </label>
           <input v-model="inputResponse" @keyup.enter="submit">
           <button type="submit"> submit</button>
         </form>
       
       </div>
       <div v-else>
-      <h1>{{madLibTitle}}</h2>
-      <p>{{string}}</p>
+      <h1 style="padding-left:30px;">{{madLibTitle}}</h2>
+      <p style="padding-left:30px;">{{string}}</p>
       </div>
       </div>
 
